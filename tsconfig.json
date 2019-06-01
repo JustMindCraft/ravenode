@@ -15,6 +15,6 @@
       }
   },
   "include": [
-      "src/server/**/*"
+      "src/server/**/*", "compatible.d.ts"
   ]
 }

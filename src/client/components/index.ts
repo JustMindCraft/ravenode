@@ -1,7 +1,36 @@
-import * as IPFSFactory from 'ipfsd-ctl';
-import Server from 'ipfsd-ctl/src/endpoint/server';
+import * as IPFSFactory from 'ipfsd-ctl/dist/index.js';
+const f = IPFSFactory.create({
+    exec: "ipfs",
+    type: 'js',
+    remote: true, port: 9090 
+})
 
-const port = 9090;
-const server:any = IPFSFactory.createServer({ port })
-IPFSFactory.create({ remote: true, port: port })
-server.start()
+f.spawn({
+    config: {
+        Gateway: {
+            "Access-Control-Allow-Headers": [
+                "X-Requested-With"
+            ],
+            "Access-Control-Allow-Methods": [
+                "GET",
+                "POST",
+                "PUT",
+            ],
+            "Access-Control-Allow-Origin": [
+                "*", "localhost:3000"
+            ]
+        },
+        EXPERIMENTAL: {
+            pubsub: true, sharding: true, dht: true
+        }
+    }
+}, function (err, ipfsd) {
+  if (err) { throw err }
+
+  ipfsd.api.id(function (err, id) {
+    if (err) { throw err }
+
+    console.log(id)
+    ipfsd.stop()
+  })
+})
