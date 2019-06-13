@@ -11,7 +11,7 @@ for (let index = 0; index < models.length; index++) {
 }
 
 const initDB = async () => nSQL().createDatabase({
-    id: "my_db", // can be anything that's a string
+    id: "ravenode", // can be anything that's a string
     mode: new RocksDB(), // save changes to IndexedDB, WebSQL or RocksDB!
     tables,
 })

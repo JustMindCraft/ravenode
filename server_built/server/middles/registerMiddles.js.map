@@ -1,0 +1,1 @@
+{"version":3,"file":"registerMiddles.js","sourceRoot":"","sources":["../../../src/server/middles/registerMiddles.ts"],"names":[],"mappings":";;AAAA,yCAAkC;AAClC,uCAAgC;AAEhC,SAAwB,eAAe,CAAC,GAAO;IAC3C,GAAG,CAAC,GAAG,CAAC,kBAAQ,CAAC,CAAC;IAClB,GAAG,CAAC,GAAG,CAAC,iBAAO,CAAC,CAAC;AACrB,CAAC;AAHD,kCAGC"}

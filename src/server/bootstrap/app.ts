@@ -1,7 +1,6 @@
 import * as Koa from 'koa';
 import * as Router from 'koa-router';
 import * as serve  from 'koa-static';
-import * as path from 'path';
 import { STATIC_PATH } from '../defination/constant/path';
 import renderHTML from '../middles/renderHTML';
 import controller from '../controllers';

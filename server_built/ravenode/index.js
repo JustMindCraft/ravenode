@@ -1,12 +1,14 @@
-import * as IPFSFactory from 'ipfsd-ctl'; 
-export default {
-    init:  () => {
-        return new Promise((res:Function, rej:Function)=>{
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const IPFSFactory = require("ipfsd-ctl");
+exports.default = {
+    init: () => {
+        return new Promise((res, rej) => {
             const f = IPFSFactory.create({
                 exec: "ipfs",
                 type: 'js',
                 remote: true, port: 9090
-            })
+            });
             f.spawn({
                 config: {
                     Gateway: {
@@ -26,25 +28,29 @@ export default {
                         pubsub: true, sharding: true, dht: true
                     }
                 }
-            },(err:any, ipfsd:any)=>{
-                if (err) { rej(err); throw err }
+            }, (err, ipfsd) => {
+                if (err) {
+                    rej(err);
+                    throw err;
+                }
                 res(ipfsd);
             });
-        })
-       
+        });
     },
     serve: () => {
-        return new Promise((res: Function, rej:Function) => {
+        return new Promise((res, rej) => {
             const server = IPFSFactory.createServer(9090);
-            server.start((err:any, server:any)=>{
-                if (err) { rej(err); throw err }
+            server.start((err, server) => {
+                if (err) {
+                    rej(err);
+                    throw err;
+                }
                 res(server);
-            })
-        })
-       
+            });
+        });
     },
-    use: (instance:any,  action:Function) => {
+    use: (instance, action) => {
         return action(instance);
     }
-   
-}
+};
+//# sourceMappingURL=index.js.map
