@@ -1,1 +1,0 @@
-{"version":3,"file":"APIError.js","sourceRoot":"","sources":["../../../src/server/middles/APIError.ts"],"names":[],"mappings":";;AAEA,SAAwB,QAAQ,CAAC,OAAc;IAC3C,IAAI,CAAC,IAAI,GAAG,OAAO,CAAC,IAAI,CAAC;IACzB,IAAI,CAAC,GAAG,GAAG,OAAO,CAAC,GAAG,CAAC;AAC3B,CAAC;AAHD,2BAGC"}

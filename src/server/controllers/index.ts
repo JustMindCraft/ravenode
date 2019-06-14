@@ -3,5 +3,8 @@ export default function controller(router:any){
         ctx.renderHTML('index.html');
     }).get('/register', async (ctx:any)=>{
         ctx.renderHTML('register.html');
+    })
+    .get('/admin', async (ctx:any)=>{
+        ctx.renderHTML('admin.html');
     });
 }
