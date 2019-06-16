@@ -1,21 +1,23 @@
 import * as React from 'react';
-import {Responsive, Filter, List,SimpleList, Datagrid, TextField, ReferenceField, EditButton, Edit, SimpleForm, ReferenceInput, TextInput, SelectInput, DisabledInput, LongTextInput, Create } from 'react-admin';
+import { translate, Responsive, Filter, List,SimpleList, Datagrid, TextField, ReferenceField, EditButton, Edit, SimpleForm, ReferenceInput, TextInput, SelectInput, DisabledInput, LongTextInput, Create } from 'react-admin';
 
-const PostFilter = (props) => (
+const PostFilter = (props:any) => (
     <Filter {...props}>
-        <TextInput label="Search" source="q" alwaysOn />
-        <ReferenceInput label="User" source="userId" reference="users" allowEmpty>
+        <TextInput label={props.translate("component.search")} source="q" alwaysOn />
+        <ReferenceInput label={props.translate("resources.posts.fields.userId")} source="userId" reference="users" allowEmpty>
             <SelectInput optionText="name" />
         </ReferenceInput>
     </Filter>
 );
+
+const PostFilterTrans = translate(PostFilter);
 
 const PostTitle = ({ record }:any) => {
     return <span>文章 {record ? `"${record.title}"` : ''}</span>;
 };
 
 export const PostList = (props:any) => (
-    <List  filters={<PostFilter />} {...props}>
+    <List  filters={<PostFilterTrans />} {...props}>
        <Responsive
             small={
                 <SimpleList
@@ -28,7 +30,7 @@ export const PostList = (props:any) => (
             medium={
                 <Datagrid>
                     <TextField source="id" />
-                    <ReferenceField label="User" source="userId" reference="users">
+                    <ReferenceField source="userId" reference="users">
                         <TextField source="name" />
                     </ReferenceField>
                     <TextField source="title" />

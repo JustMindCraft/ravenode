@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "yarn run client:watch & yarn run server:watch",
-    "server:watch": "nodemon --watch 'src/server/**/*.ts' --exec 'ts-node' --project src/server/tsconfig.json src/server/index.ts",
+    "server:watch": "nodemon --watch 'src/server/**/**/*.ts' --exec 'ts-node' --project src/server/tsconfig.json src/server/index.ts",
     "server:build": "./node_modules/.bin/tsc",
     "client:watch": "parcel watch ./src/client/pages/**/*.html ./src/client/pages/*.html",
     "client:build": "parcel build ./src/client/pages/**/*.html ./src/client/pages/*.html",
