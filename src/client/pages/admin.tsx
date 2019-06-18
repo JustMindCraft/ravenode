@@ -8,22 +8,34 @@ import { UserList } from '../components/pages/admin/users';
 import { PostList, PostEdit, PostCreate } from '../components/pages/admin/posts';
 import PostIcon from '@material-ui/icons/Book';
 import UserIcon from '@material-ui/icons/Group';
-import chineseMessages from 'ra-language-chinese';
-import translation from '../uitls/translation'
+import zhLang from "../i18n/zh";
+import enLang from "../i18n/zh";
 
-const messages = {
-    zh: {...chineseMessages, ...translation},
+const i18nProvider:Function = (locale:string) => {
+    if (locale === 'zh') {
+        return zhLang;
+    }
+
+    // Always fallback on english
+    return enLang;
 };
 
-const i18nProvider = (locale:any) => messages[locale] ? messages[locale] : messages["en"];
 
-const dataProvider = jsonServerProvider('http://jsonplaceholder.typicode.com');
+const dataProvider:any = jsonServerProvider('http://jsonplaceholder.typicode.com');
 
+const browserLang:string = resolveBrowserLocale();
 
-const App = () => 
-    <Admin  title="My Custom Admin"  dashboard={Dashboard}  authProvider={authProvider} dataProvider={dataProvider} messages={messages}  locale={resolveBrowserLocale()} i18nProvider={i18nProvider} >
-        <Resource name={translation.resources.posts.name}  options={{ label: 'giid123123' }}  list={PostList}  edit={PostEdit} create={PostCreate}   icon={PostIcon}/>
-        <Resource name="users" list={UserList}  icon={UserIcon} />
-    </Admin>;
+const currentLocale:any = i18nProvider(browserLang);
+
+class App extends React.Component{
+    render(){
+        return (
+            <Admin  title="My Custom Admin"  dashboard={Dashboard}  authProvider={authProvider} dataProvider={dataProvider}  locale={browserLang} i18nProvider={i18nProvider} >
+                <Resource name={currentLocale.resources.posts.name}  options={{ label: 'giid123123' }}  list={PostList}  edit={PostEdit} create={PostCreate}   icon={PostIcon}/>
+                <Resource name="users" list={UserList}  icon={UserIcon} />
+            </Admin>
+        );
+    }
+}
 
 ReactDOM.render(<App />, document.querySelector('#app'));

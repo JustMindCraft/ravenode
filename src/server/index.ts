@@ -2,7 +2,10 @@ import app from './bootstrap/app';
 import  ravenode  from '../ravenode';
 
 function middle(instance:any){
-    console.log(instance.api);
+    // console.log(instance.api);
+    if(instance.api){
+        console.log("ipfs is runner");
+    }
     
 }
 
