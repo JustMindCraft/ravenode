@@ -17,7 +17,7 @@ const PostTitle = ({ record }:any) => {
 };
 
 export const PostList = (props:any) => (
-    <List  filters={<PostFilterTrans />} {...props}>
+    <List  filters={<PostFilterTrans />} {...props} title="文章列表">
        <Responsive
             small={
                 <SimpleList

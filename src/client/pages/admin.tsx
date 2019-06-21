@@ -10,6 +10,7 @@ import PostIcon from '@material-ui/icons/Book';
 import UserIcon from '@material-ui/icons/Group';
 import zhLang from "../i18n/zh";
 import enLang from "../i18n/zh";
+import CustomLayout from "../components/pages/admin/CustomLayout";
 
 const i18nProvider:Function = (locale:string) => {
     if (locale === 'zh') {
@@ -30,7 +31,7 @@ const currentLocale:any = i18nProvider(browserLang);
 class App extends React.Component{
     render(){
         return (
-            <Admin  title="My Custom Admin"  dashboard={Dashboard}  authProvider={authProvider} dataProvider={dataProvider}  locale={browserLang} i18nProvider={i18nProvider} >
+            <Admin appLayout={CustomLayout}  title="My Custom Admin"  dashboard={Dashboard}  authProvider={authProvider} dataProvider={dataProvider}  locale={browserLang} i18nProvider={i18nProvider} >
                 <Resource name={currentLocale.resources.posts.name}  options={{ label: 'giid123123' }}  list={PostList}  edit={PostEdit} create={PostCreate}   icon={PostIcon}/>
                 <Resource name="users" list={UserList}  icon={UserIcon} />
             </Admin>

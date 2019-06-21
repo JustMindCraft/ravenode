@@ -1,10 +1,11 @@
 export default {
     table: {
-        name: "usrs",
+        name: "users",
         model: {
             "id:uuid": {pk: true},
             "username:string": {},
-            "password:string": {}
+            "password:string": {},
+            "mobile:string": {},
         }
     }
    

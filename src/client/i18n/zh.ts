@@ -26,5 +26,9 @@ export default {
         menu: {
             posts: "文章"
         }
-    }
+    },
+    auth: {
+        404: "用户不存在"
+    }, 
+    "Failed to fetch": "网络暂时无法链接，请稍后重试"
 }

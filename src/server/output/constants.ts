@@ -1,0 +1,20 @@
+//auth
+export const AUTH_PASSWORD_REQUIRED = "PASSWORD_REQUIRED";
+export const AUTH_PASSWORD_WRONG = "PASSWORD_WRONG";
+export const AUTH_USER_NOT_FOUND = "USER_NOT_FOUND";
+export const AUTH_TYPE_MISSING = "AUTH_TYPE_MISSING";
+export const AUTH_TOKEN_VERIFY_FAIL = "AUTH_TOKEN_VERIFY_FAIL"
+
+
+
+//access
+export const ACCESS_DENY="ACCESS_DENY";
+
+
+//source
+export const SOURCE_NOT_FOUND = "SOURCE_NOT_FOUND";
+export const FIELD_NOT_ALLOWED = (FIELD:string) => FIELD+"NOT_ALLOWED";
+
+//error
+
+export const INTERNAL_UNKNOWN_ERROR = "INTERNAL_UNKNOWN_ERROR"; 
