@@ -15,7 +15,7 @@ import {
     complete,
 } from 'ra-core';
 
-const styles = theme =>
+const styles = (theme:any) =>
     createStyles({
         confirm: {
             backgroundColor: theme.palette.background.default,
