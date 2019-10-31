@@ -47,7 +47,7 @@
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
     "koa-static": "^5.0.0",
-    "mongoose": "^5.6.0",
+    "mongoose": "^5.7.5",
     "orbit-db": "^0.21.0",
     "prop-types": "^15.7.2",
     "ra-data-json-server": "^2.9.2",
